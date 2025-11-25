@@ -14,7 +14,7 @@ The Jupyter Notebook `Spectral_Analysis_SU2.ipynb` covers the following topics:
 1.  **Implementation:** Symbolic construction of the Hodge-Laplacian $\Delta = \nabla^*\nabla + 2q(R)$ using `SageMath`.
 2.  **Explicit Matrices:** Visualization of the operator matrices for low representation weights $k$.
 3.  **Symbolic Spectrum:** Exact calculation of eigenvalues for $k=0, 1, 2, 3$.
-4.  **Monte Carlo Stress Test:** Numerical verification of the conjecture on 1000 random metrics.
+4.  **Monte Carlo Stress Test:** Numerical verification of the conjecture on 10000 random metrics.
 5.  **Berger Spheres:** Visualization of the full spectrum and the splitting behavior for canonical variations.
 
 **Supplementary Data Files:**
