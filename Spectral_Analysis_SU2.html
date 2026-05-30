@@ -9,7 +9,7 @@ window.MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath:
 </script>
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 <style>
-:root { --bg:#f7f8fb; --paper:#fff; --ink:#172033; --muted:#5f6b7a; --border:#d9e0ea; --code-bg:#f4f6f9; --output-bg:#fbfcfe; }
+:root { --bg:#f7f8fb; --paper:#fff; --ink:#172033; --muted:#5f6b7a; --border:#d9e0ea; --code-bg:#f6f8fa; --output-bg:#fff; --prompt:#57606a; }
 * { box-sizing:border-box; }
 body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; line-height:1.55; }
 main { max-width:1180px; margin:0 auto; padding:32px 20px 64px; }
@@ -20,7 +20,9 @@ h1 { margin:0 0 8px; font-size:clamp(1.8rem,3vw,2.6rem); line-height:1.15; }
 .markdown-cell { padding:20px 24px; }
 .markdown-cell h1,.markdown-cell h2,.markdown-cell h3 { margin-top:.2em; }
 .markdown-cell p:last-child,.markdown-cell ul:last-child,.markdown-cell ol:last-child { margin-bottom:0; }
-.input-label,.output-label { padding:8px 14px; color:var(--muted); font-size:.85rem; border-bottom:1px solid var(--border); background:#eef2f7; font-family:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace; }
+.markdown-cell blockquote { margin:1em 0; padding:.1em 1em; color:#3f4b5c; border-left:4px solid var(--border); background:#fbfcfe; }
+.markdown-cell hr { border:0; border-top:1px solid var(--border); margin:1.25rem 0; }
+.input-label,.output-label { padding:7px 14px; color:var(--prompt); font-size:.83rem; border-bottom:1px solid var(--border); background:#eef2f7; font-family:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace; }
 pre { margin:0; }
 .code,.md-code { padding:16px 18px; background:var(--code-bg); overflow:auto; font-size:.9rem; line-height:1.45; border-bottom:1px solid var(--border); }
 code,pre { font-family:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace; }
@@ -39,7 +41,7 @@ figure img { display:block; max-width:100%; height:auto; margin:0 auto; border:1
 <main>
 <header>
 <h1>Hodge Laplacian on 1-forms of homogeneous 3-spheres</h1>
-<div class="meta">Static HTML rendering of Spectral_Analysis_SU2.ipynb. Generated locally on 2026-05-30 15:50. Code cells and recorded outputs are shown in notebook order.</div>
+<div class="meta">Static HTML rendering of Spectral_Analysis_SU2.ipynb. Generated locally on 2026-05-30 16:13. Code cells and recorded outputs are shown in notebook order.</div>
 </header>
 <section class="cell markdown-cell" id="cell-0">
 <h1>Electronic Supplement</h1>
@@ -64,7 +66,7 @@ figure img { display:block; max-width:100%; height:auto; margin:0 auto; border:1
 <li><strong>Full Spectrum of Berger Spheres:</strong> Visualization of the eigenvalue evolution for Berger metrics.</li>
 </ol>
 </section><section class="cell markdown-cell" id="cell-1">
-<h2>&lt;a id="setup"&gt;&lt;/a&gt;1. Implementation of the Hodge-Laplacian</h2>
+<h2><a id="setup"></a>1. Implementation of the Hodge-Laplacian</h2>
 <p>We implement the Hodge-Laplacian $\Delta = \nabla^*\nabla + 2q(R)$ acting on 1-forms using the standard basis for the irreducible representations $V_k$ of $\mathfrak{su}(2)$.</p>
 <p><strong>Usage of the <code>Delta</code> function:</strong><br>
 The core function <code>Delta(k, a_val, b_val, c_val, numeric)</code> constructs the operator matrix.</p>
@@ -213,7 +215,7 @@ def Delta(k, a_val=None, b_val=None, c_val=None, numeric=False):
 </code></pre>
 
 </section><section class="cell markdown-cell" id="cell-3">
-<h2>&lt;a id="matrices"&gt;&lt;/a&gt;2. Explicit Matrix Representations</h2>
+<h2><a id="matrices"></a>2. Explicit Matrix Representations</h2>
 <p>We display the symbolic form of the Hodge-Laplacian. You can adjust the loop variable to inspect the matrix structure for higher representations $k$. Note that the matrix dimension grows as $3(k+1) \times 3(k+1)$.</p>
 </section><section class="cell code-cell" id="cell-4">
 <div class="input-label">In [17]</div><pre class="code"><code>from IPython.display import display, Math
@@ -264,7 +266,7 @@ a^{2} + b^{2} + \frac{4 \, b^{2} c^{2}}{a^{2}} + c^{2} &amp; 0 &amp; 0 &amp; 0 &
 </pre></div><div class="output latex-output">$\displaystyle \textbf{Representation } k = 5 \quad (\text{Dimension } 18 \times 18)$</div><div class="output latex-output">$\displaystyle \text{Matrix too large for inline display.}$</div><div class="output latex-output">$\displaystyle \text{Full matrix exported to } \texttt{explicit\_matrices.txt}$</div><div class="output"><div class="output-label">stdout</div><pre class="stream-output">------------------------------------------------------------
 </pre></div></div>
 </section><section class="cell markdown-cell" id="cell-5">
-<h2>&lt;a id="eigenvalues"&gt;&lt;/a&gt;3. Symbolic Spectrum</h2>
+<h2><a id="eigenvalues"></a>3. Symbolic Spectrum</h2>
 <p>We compute the exact symbolic eigenvalues for low weights.</p>
 <ul>
 <li>For $k=0$, the operator acts purely on the fiber. The spectrum is determined by the operator $-C_{\nabla}^{\mathfrak{su}(2)} + 2q(R)$.</li>
@@ -318,12 +320,14 @@ with open(OUTPUT_FILE_EIG, &quot;w&quot;) as f:
 </pre></div><div class="output latex-output">$\displaystyle \textbf{Spectrum for } k=3:$</div><div class="output latex-output">$\displaystyle \text{Explicit formulas are too large for inline display.}$</div><div class="output latex-output">$\displaystyle \text{Full results exported to } \texttt{exact\_eigenvalues.txt}$</div><div class="output"><div class="output-label">stdout</div><pre class="stream-output">============================================================
 </pre></div></div>
 </section><section class="cell markdown-cell" id="cell-7">
-<h2>&lt;a id="montecarlos"&gt;&lt;/a&gt;4. Monte Carlo Stress Test</h2>
+<h2><a id="montecarlos"></a>4. Monte Carlo Stress Test</h2>
 <p>We perform a numerical stress test to verify the conjecture regarding the smallest eigenvalue.</p>
-<p>&gt; <strong>The Conjecture:</strong><br>
-&gt; Let $(M, g_{a,b,c})$ be a homogeneous 3-sphere or its quotient. The first non-zero eigenvalue of the Hodge-Laplacian on 1-forms is given by:<br>
-&gt; <em>   </em>For $M = SU(2)$:* The minimum of the first eigenvalue on functions ($k=1$) and the first eigenvalue of the fiber-wise operator ($k=0$).<br>
-&gt; <em>   </em>For $M = SO(3)$:* The first eigenvalue of the fiber-wise operator ($k=0$).</p>
+<blockquote><p><strong>The Conjecture:</strong><br>
+Let $(M, g_{a,b,c})$ be a homogeneous 3-sphere or its quotient. The first non-zero eigenvalue of the Hodge-Laplacian on 1-forms is given by:</p>
+<ul>
+<li><em>For $M = SU(2)$:</em> The minimum of the first eigenvalue on functions ($k=1$) and the first eigenvalue of the fiber-wise operator ($k=0$).</li>
+<li><em>For $M = SO(3)$:</em> The first eigenvalue of the fiber-wise operator ($k=0$).</li>
+</ul></blockquote>
 <p><strong>Configuration:</strong></p>
 <ul>
 <li><code>K_MIN</code> / <code>K_MAX</code>: Defines the range of representations to check.</li>
@@ -678,7 +682,7 @@ SUCCESS: The conjecture holds for all 1000 restricted random metrics.
 ======================================================================
 </pre></div></div>
 </section><section class="cell markdown-cell" id="cell-11">
-<h2>&lt;a id="plots"&gt;&lt;/a&gt;5. Full Spectrum of Berger Spheres</h2>
+<h2><a id="plots"></a>5. Full Spectrum of Berger Spheres</h2>
 <p>We visualize the spectrum for Berger metrics ($b=c=1$) depending on the parameter $a$.</p>
 <p><strong>Context:</strong><br>
 These plots illustrate the Hodge spectrum a canonical variation of a Riemannian submersion with totally geodesic fibers. While the spectral behavior for functions was previously established by <em>Bérard-Bergery and Bourguignon (1982)</em>, here we visualize the splitting behavior for 1-forms.</p>
