@@ -11,7 +11,7 @@ It provides the source code for the symbolic derivation of the operator and nume
 
 GitHub sometimes fails to render the Jupyter notebook file (`Spectral_Analysis_SU2.ipynb`) in the web preview and shows only `An error occurred`. The following HTML version is provided as a stable browser-readable rendering with code cells and recorded outputs in notebook order:
 
-- [Spectral_Analysis_SU2.html](https://jmhenkel.github.io/Code/Spectral_Analysis_SU2.html)
+- <a href="https://jmhenkel.github.io/Code/Spectral_Analysis_SU2.html" target="_blank" rel="noopener noreferrer">Spectral_Analysis_SU2.html</a>
 
 The original executable notebook is also included:
 
