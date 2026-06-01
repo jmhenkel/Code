@@ -5,7 +5,7 @@ This repository contains the *Electronic Supplementary Material* for the paper:
 > **Hodge Laplacian on 1-forms of homogeneous 3-spheres**  
 > *Jonas Henkel and Emilio Lauret*
 
-It provides the source code for the symbolic derivation of the operator and numerical verifications of the *first eigenvalue conjecture*.
+It provides the source code for the symbolic derivation of the operator and numerical verifications of the *First Eigenvalue Conjecture*.
 
 ## Recommended browser view
 
